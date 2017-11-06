@@ -4,7 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.honeywell.libpjsip.SipManager;
+import com.honeywell.libpjsip.SipAccount;
+import com.honeywell.libpjsip.SipManagerNativeInterface;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
         System.loadLibrary("native-lib");
     }
 
+    private SipManagerNativeInterface mSipManagerNativeInterface;
+    private SipAccount mSipAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
 
-        SipManager sipManager = new SipManager(5060);
+        //mSipManagerNativeInterface = new SipManagerNativeInterface(5060);
+        //mSipAccount = SipAccount.createNewAccount("abc", "12345","192.168.9.127", "android");
     }
 
     /**
